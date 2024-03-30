@@ -1,0 +1,50 @@
+@import url("navbar.css");
+@import url("sidebar.css");
+@import url("cards.css");
+@import url("template.css");
+@import url("table.css");
+@import url("form.css");
+@import url("button.css");
+
+:root{
+    --first-color: #e7eaf6;
+    --second-color: #a2a8d3;
+    --third-color: #38598b;
+    --fourth-color: #113f67;
+}
+html{
+    height: 100%;
+    overflow: hidden;
+}
+body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    font-family: 'Lato', sans-serif;
+    /* display: grid;
+    grid-template-rows: 4rem 1fr; */
+    height: 100vh;
+    position: relative
+}
+
+.MainBody{
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    width: 100vw;
+    position: relative;
+    height: 100%;
+}
+
+.Content{
+    display: grid;
+    overflow: auto;
+    height: 100%;
+    width: calc( 100vw - 12rem );
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+

@@ -1,0 +1,21 @@
+.Form{
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+}
+
+.Form > .InputGroup{
+    display: grid;
+    gap: 0.2rem;
+}
+
+.Form > .InputGroup > label{
+    font-weight: bold;
+    color: var(--third-color)
+}
+
+.Form > .InputGroup > input{
+    border-color: var(--third-color);
+    border-radius: 3px;
+    height:1.2rem;
+}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="ListContent">
+    <div class="Card">
+        <div class="Header">Doctor</div>
+        <div class="Body">
+            <div class="BasicData" >
+            <table class="VerticalTable">
+                <tbody>
+                    <tr><th>Name</th><td>{{context.doctor.name}}</td></tr>
+                    <tr><th>Age</th><td>{{context.doctor.age}}</td></tr>
+                    <tr><th>Experience</th><td>{{context.doctor.experience}}</td></tr>
+                    <tr><th>Salary</th><td>{{context.doctor.salary}}</td></tr>
+                    <tr><th>Patients</th><td>{{context.patients.count}}</td></tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="Header">Patients</div>
+        <div class="Body">
+            <table class="ListTable">
+                <thead>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Disease</th>
+                        <th>Actions</th>
+                </thead>
+                <tbody>
+                    {% for patient in context.patients %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{patient.name}}</td>
+                        <td>{{patient.age}}</td>
+                        <td>{{patient.disease}}</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                            <button id="#viewButton1"><a href="{% url 'entities:detail_patient' pk=patient.id %}">View</a></button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+{% comment %} <div class="Modal">
+    <div class="ModalCard">
+        <div class="Header">Edit Doctor</div>
+        <div class="Body">
+            <form class="Form">
+                <div class="InputGroup">
+                    <label for="name">Name:</label>
+                    <input id="name" value="Eirini Mavrogeorgi" type="text"/>
+                </div>
+                <div class="InputGroup">
+                    <label for="age">Age:</label>
+                    <input id="age" value="62" type="number"/>
+                </div>
+                <div class="InputGroup">
+                    <label for="experience">Experience:</label>
+                    <input id="experience" value="25" type="number"/>
+                </div>
+                <div class="InputGroup">
+                    <label for="salary">Salary:</label>
+                    <input id="salary" value="3500" type="number"/>
+                </div>
+            </form>
+            
+        </div>
+        <div class="Actions">
+            <button class="Danger">Cancel</button>
+            <button class="Success">Submit</button>
+        </div>
+    </div>
+</div> {% endcomment %}
+</div>
+
+{% endblock %}

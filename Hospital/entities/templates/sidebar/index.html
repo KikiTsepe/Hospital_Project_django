@@ -1,0 +1,18 @@
+
+
+<div class="{% if 'doctors' in request.path %}SelectedOption{% else %}Option{% endif %}" id="doctorsOption">
+    <div class="Icon">D</div>
+    <div class="Label"><a href="{% url 'entities:list_doctor'%}">Doctors</a></div>
+</div> 
+<div class="{% if 'nurses' in request.path %}SelectedOption{% else %}Option{% endif %}" id="nursesOption">
+    <div class="Icon">N</div>
+    <div class="Label"><a href="{% url 'entities:list_nurse'%}">Nurse</a></div>
+</div>
+<div class="{% if 'patients' in request.path %}SelectedOption{% else %}Option{% endif %}" id="patientsOption">
+    <div class="Icon">P</div>
+    <div class="Label"><a href="{% url 'entities:list_patient'%}">Patients</a></div>
+</div>
+<div class="{% if 'rooms' in request.path %}SelectedOption{% else %}Option{% endif %}" id="patientsOption">
+    <div class="Icon">R</div>
+    <div class="Label"><a href="{% url 'entities:list_room'%}">Rooms</a></div>
+</div>

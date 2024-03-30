@@ -1,0 +1,71 @@
+
+/* LIST PAGE */
+.ListPage{
+    height: 100%;
+    background-color: var(--first-color);
+    display: grid;
+    padding: 2rem 3rem 0rem 3rem;
+    gap: 2rem;
+    grid-template-rows: max-content;
+}
+
+.ListStats{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
+}
+
+.ListContent{
+    width: 100%;
+    padding: 1rem;
+}
+
+.FilterBar{
+    /* width: 100%; */
+    background-color: var(--fourth-color);
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    padding: 0.5rem;
+    min-height: 2rem;
+    align-content: center;
+}
+.FilterBar > .Filters{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    padding-right: 0.5rem;
+}
+.FilterBar> .FilterActions{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0.3rem;
+}
+
+.FilterInput{
+    height: 1.5rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+/* DETAIL PAGE */
+.BasicData{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* Modal */
+.Modal{
+    position: absolute;
+    top: -3.1rem;
+    bottom:0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}

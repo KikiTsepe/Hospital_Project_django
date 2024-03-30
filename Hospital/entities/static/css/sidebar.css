@@ -1,0 +1,55 @@
+.Sidebar{
+    width: 12rem;
+    display: grid;
+    padding-top: 1rem;
+    align-content: start;
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0; */
+}
+/* Common Option Styles */
+.Sidebar > .Option,
+.Sidebar  > .SelectedOption
+{
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    cursor: pointer;
+    height: 2rem;
+    line-height: 2rem;
+    text-decoration: none;
+}
+
+.Sidebar > .Option{
+    font-weight: bold;
+    color: var(--fourth-color);
+}
+.Sidebar > .Option:hover{
+    font-size: 1.2rem;
+}
+
+.Sidebar > .SelectedOption{
+    color: white;
+    font-weight: bolder;
+    background-color: var(--fourth-color);
+}
+/* Common Icon Styles */
+.Sidebar > .Option > .Icon,
+.Sidebar > .SelectedOption > .Icon
+{
+    text-align: center;
+}
+
+/* Common Label Styles */
+.Sidebar > .Option > .Label,
+.Sidebar > .SelectedOption > .Label
+{
+    padding-left: 0.5rem;
+}
+.Sidebar > .Option > .Label > a{
+    color: var(--fourth-color)
+}
+.Sidebar > .SelectedOption > .Label > a{
+    color: white;
+    text-decoration: none;
+}

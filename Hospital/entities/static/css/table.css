@@ -1,0 +1,28 @@
+.ListTable {
+    width: 100%;
+}
+.ListTable > thead {
+    background-color: var(--third-color);
+    color: white;
+}
+.ListTable > thead > td{
+    text-align: center;
+}
+.ListTable > tbody > tr:nth-child(2n){
+    background-color: var(--first-color);
+}
+.ListTable > tbody > tr > td{
+    text-align: center;
+}
+
+.VerticalTable{
+    width: 100%;
+}
+.VerticalTable > tbody > tr > th{
+    text-align: right;
+    background-color: var(--third-color);
+    color: white;
+}
+.VerticalTable > tbody > tr > td{
+    text-align: left;
+}

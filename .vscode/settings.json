@@ -1,5 +1,10 @@
 {
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": ["--style", "${workspaceFolder}/.style.yapf"],
+  
+  "editor.formatOnSaveMode": "file",
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "eeyore.yapf",
+  "editor.formatOnType": false,
+  "python.linting.mypyArgs": [
+    "--cache-dir=.mypy_cache/.vscode"
+]
 }

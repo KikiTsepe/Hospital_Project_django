@@ -1,0 +1,115 @@
+/* MAIM CARDS */
+.Card {
+    border: 1px solid var(--third-color);
+    border-radius: 4px;
+    padding: 1rem;
+    gap: 0.5rem;
+    display: grid;
+    background-color: white;
+}
+.Card > .Header{
+    display: grid;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--fourth-color);
+    border-bottom: 1px solid var(--third-color);
+    padding-left: 0.5rem;
+}
+.Card > .Body{
+    display: grid;
+    padding-left: 0.5rem;
+    overflow: auto;
+}
+.Card > .Actions{
+    display: grid;
+    grid-auto-flow: column; 
+    justify-content: right;
+    gap: 0.2rem;
+}
+
+/* Modal Card */
+.ModalCard {
+    border: 1px solid var(--third-color);
+    border-radius: 4px;
+    padding: 1rem;
+    gap: 0.5rem;
+    display: grid;
+    background-color: white;
+    width:fit-content;
+}
+.ModalCard > .Header{
+    display: grid;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--fourth-color);
+    border-bottom: 1px solid var(--third-color);
+    padding-left: 0.5rem;
+}
+.ModalCard > .Body{
+    display: grid;
+    padding-left: 0.5rem;
+    min-width: 20vw;
+    min-height: 7vh;
+    overflow: auto;
+}
+.ModalCard > .Actions{
+    display: grid;
+    grid-auto-flow: column; 
+    justify-content: right;
+    gap: 0.2rem;
+}
+
+
+/* STATS CARS */
+.FirstColor{
+    background-color: var(--first-color);
+    color: white;
+}
+.SecondColor{
+    background-color: var(--second-color);
+    color: white;
+}
+.ThirdColor{
+    background-color: var(--third-color);
+    color: white;
+}
+.FourthColor{
+    background-color: var(--fourth-color);
+    color: white;
+}
+.GreenColor{
+    background-color: green;
+    color: white;
+}
+.RedColor{
+    background-color: red;
+    color: white;
+}
+.StatCard{
+    border-radius: 8px;
+    padding: 1rem;
+    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 6rem;
+}
+.StatCard > .Icon{
+    font-size: 5rem;
+    text-align: center;
+    line-height: 6rem;
+}
+.StatCard > .Body{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.StatCard > .Body > .StatValue{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    /* line-height: 4.5rem; */
+    align-self: self-end;
+}
+.StatCard> .Body > .Label{
+    text-align: center;
+}
+

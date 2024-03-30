@@ -1,0 +1,27 @@
+button{
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+}
+
+.Danger{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+.Warning{
+    background-color: orange;
+    border-color: orange;
+    color: white;
+}
+.Success{
+    background-color: green;
+    border-color: green;
+    color: white;
+}
+.FourthColor{
+    background-color: var(--fourth-color);
+    border-color:  var(--fourth-color);
+    color: white;
+}
