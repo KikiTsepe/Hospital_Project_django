@@ -5,6 +5,7 @@ description = "The same project as Hospital_Project but with django"
 authors = ["Kiki Tsepe <kiki.tsepe@gmail.com>"]
 readme = "README.md"
 packages = [{include = "hospital_project_django"}]
+package-mode = false  # Add this line
 
 [tool.poetry.dependencies]
 python = "^3.10"
