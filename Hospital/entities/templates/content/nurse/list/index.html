@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="ListPage">
+
+  <div class="ListStats">
+      <div class="StatCard RedColor">
+          <div class="Body">
+              <div class="StatValue">{{context.total_nurses}}</div>
+              <div class="Label">Nurses</div>
+          </div>
+          <div class="Icon">N</div>
+      </div>
+      <div class="StatCard SecondColor">
+          <div class="Body">
+              <div class="StatValue">{{context.average_salary|floatformat:2}}</div>
+              <div class="Label">Salary</div>
+          </div>
+          <div class="Icon">S</div></div>
+      <div class="StatCard FourthColor">
+          <div class="Body">
+              <div class="StatValue">{{context.average_experience|floatformat:2}}</div>
+              <div class="Label">Experience</div>
+          </div>
+          <div class="Icon">E</div></div>
+  </div>
+
+  <div class="ListContent">
+      <div class="Card">
+          <div class="Header">Nurses</div>
+          <div class="Body">
+              <form action="" class="FilterBar">
+                  <div class="Filters">
+                      <input class="FilterInput" type="text" placeholder="Name:" name="name__icontains" value={{ filter.form.name__icontains.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Age From:" name="age__gte" value={{ filter.form.age__gte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Age To:" name="age__lte" value={{ filter.form.age__lte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Experience From:" name="experience__gte" value={{ filter.form.experience__gte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Experience To:" name="experience__lte" value={{ filter.form.experience__lte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Salary From:" name="salary__gte" value={{ filter.form.salary__gte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Salary To:" name="salary__lte" value={{ filter.form.salary__lte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Room in charge:" name="room_in_charge__number" value={{ filter.form.room_in_charge__number.value|default_if_none:"" }}>
+                  </div>
+                  <div class="FilterActions">
+                      <button class="Warning" type="reset"><a href="/nurses">Reset</a></button>
+                      <button class="Success" >Search</button>
+                  </div>
+              </form>
+              <table class="ListTable">
+                  <thead>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Experience</th>
+                          <th>Salary</th>
+                          <th>Room in charge</th>
+                          <th>Patients</th>
+                          <th>Actions</th>
+                  </thead>
+                  <tbody>
+                    {% for nurse in context.nurses %}
+                      <tr>
+                          <td>{{ forloop.counter }}</td>
+                          <td>{{nurse.name}}</td>
+                          <td>{{nurse.age}}</td>
+                          <td>{{nurse.experience}}</td>
+                          <td>{{nurse.salary}}</td>
+                          <td>{{nurse.room_in_charge}}</td>
+                          <td>{{nurse.patients_num}}</td>
+                          <td>
+                              <button class="Warning">Edit</button>
+                              <button class="Danger">Delete</button>
+                              <button class="Success" id="#viewButton1"><a href="{% url 'entities:detail_nurse' pk=nurse.id %}">View</a></button>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                     
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

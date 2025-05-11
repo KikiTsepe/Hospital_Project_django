@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="ListPage">
+
+  <div class="ListStats">
+      <div class="StatCard RedColor">
+          <div class="Body">
+              <div class="StatValue">{{context.total_patients}}</div>
+              <div class="Label">Patients</div>
+          </div>
+          <div class="Icon">P</div>
+      </div>
+      <div class="StatCard SecondColor">
+          <div class="Body">
+              <div class="StatValue">{{context.average_age|floatformat:2}}</div>
+              <div class="Label">Age</div>
+          </div>
+          <div class="Icon">A</div></div>
+       
+  </div>
+
+  <div class="ListContent">
+      <div class="Card">
+          <div class="Header">Patients</div>
+          <div class="Body">
+              <form action="" class="FilterBar">
+                  <div class="Filters">
+                      <input class="FilterInput" type="text" placeholder="Name:" name="name__icontains" value={{ filter.form.name__icontains.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Age From:" name="age__gte" value={{ filter.form.age__gte.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Age To:" name="age__lte" value={{ filter.form.age__lte.value|default_if_none:"" }}>
+                      <input class="FilterInput" placeholder="Disease:" name="disease__icontains" value={{ filter.form.disease__icontains.value|default_if_none:"" }}>
+                      <input class="FilterInput" type="number" placeholder="Room:" name="room__number" value={{ filter.form.room__number.value|default_if_none:"" }}>
+                  </div>
+                  <div class="FilterActions">
+                      <button class="Warning" type="reset"><a href="/patients">Reset</a></button>
+                      <button class="Success" >Search</button>
+                  </div>
+              </form>
+              <table class="ListTable">
+                  <thead>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>Disease</th>
+                          <th>Room</th>
+                          <th>Actions</th>
+                  </thead>
+                  <tbody>
+                    {% for patient in context.patients %}
+                      <tr>
+                          <td>{{ forloop.counter }}</td>
+                          <td>{{patient.name}}</td>
+                          <td>{{patient.age}}</td>
+                          <td>{{patient.disease}}</td>
+                          <td>{{patient.room}}</td>
+                          <td>
+                              <button class="Warning">Edit</button>
+                              <button class="Danger">Delete</button>
+                              <button class="Success" id="#viewButton1"><a href="{% url 'entities:detail_patient' pk=patient.id %}">View</a></button>
+                          </td>
+                      </tr>
+                      {% endfor %}
+                     
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

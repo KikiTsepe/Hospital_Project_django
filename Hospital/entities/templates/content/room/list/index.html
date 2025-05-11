@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="ListPage">
+  <div class="ListStats">
+    <div class="StatCard RedColor">
+      <div class="Body">
+        <div class="StatValue">{{context.total_rooms}}</div>
+        <div class="Label">Rooms</div>
+      </div>
+      <div class="Icon">R</div>
+    </div>
+    <div class="StatCard SecondColor">
+      <div class="Body">
+        <div class="StatValue">{{context.average_capacity|floatformat:2}}</div>
+        <div class="Label">Capacity averate</div>
+      </div>
+      <div class="Icon">C</div>
+    </div>
+    <div class="StatCard ThirdColor">
+      <div class="Body">
+        <div class="StatValue">{{context.total_beds}}</div>
+        <div class="Label">Total Beds</div>
+      </div>
+      <div class="Icon">T</div>
+    </div>
+    <div class="StatCard FourthColor">
+      <div class="Body">
+        <div class="StatValue">{{context.total_free_beds}}</div>
+        <div class="Label">Total Free Beds</div>
+      </div>
+      <div class="Icon">F</div>
+    </div>
+  </div>
+
+  <div class="ListContent">
+    <div class="Card">
+      <div class="Header">Patients</div>
+      <div class="Body">
+        <form action="" class="FilterBar">
+          <div class="Filters">
+            <input class="FilterInput" type="number" placeholder="Number:"
+            name="number" value={{ filter.form.number.value|default_if_none:""
+            }}> <input class="FilterInput" type="number" placeholder="Capacity
+            From:" name="capacity__gte" value={{
+            filter.form.capacity__gte.value|default_if_none:"" }}> <input
+            class="FilterInput" type="number" placeholder="Capacity To:"
+            name="capacity__lte" value={{
+            filter.form.capacity__lte.value|default_if_none:"" }}><input
+            class="FilterInput" type="number" placeholder="Reserved Beds From:"
+            name="num_patients__gte" value={{
+            filter.form.num_patients__gte.value|default_if_none:"" }}><input
+            class="FilterInput" type="number" placeholder="Reserved Beds To:"
+            name="num_patients__lte" value={{
+            filter.form.num_patients__lte.value|default_if_none:"" }}><input
+            class="FilterInput" type="number" placeholder="Free Beds From:"
+            name="free_beds__gte" value={{
+            filter.form.free_beds__gte.value|default_if_none:"" }}><input
+            class="FilterInput" type="number" placeholder="Free Beds To:"
+            name="free_beds__lte" value={{
+            filter.form.free_beds__lte.value|default_if_none:"" }}> <input
+            class="FilterInput" type="number" placeholder="Nurses From:"
+            name="num_nurses__gte" value={{
+            filter.form.num_nurses__gte.value|default_if_none:"" }}> <input
+            class="FilterInput" type="number" placeholder="Nurses To:"
+            name="num_nurses__lte" value={{
+            filter.form.num_nurses__lte.value|default_if_none:"" }}> <input
+            class="FilterInput" type="number" placeholder="Patients From:"
+            name="num_patients__gte" value={{
+            filter.form.num_patients__gte.value|default_if_none:"" }}> <input
+            class="FilterInput" type="number" placeholder="Patients To:"
+            name="num_patients__lte" value={{
+            filter.form.num_patients__lte.value|default_if_none:"" }}>
+          </div>
+          <div class="FilterActions">
+            <button class="Warning" type="reset">
+              <a href="/rooms">Reset</a>
+            </button>
+            <button class="Success">Search</button>
+          </div>
+        </form>
+        <table class="ListTable">
+          <thead>
+            <th>#</th>
+            <th>Number</th>
+            <th>Capacity</th>
+            <th>Reserved beds</th>
+            <th>Free beds</th>
+            <th>Number of nurses</th>
+            <th>Number of patients</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            {% for room in context.rooms %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{room.number}}</td>
+              <td>{{room.capacity}}</td>
+              <td>{{room.reserved_beds}}</td>
+              <td>{{room.free_beds}}</td>
+              <td>{{room.num_nurses}}</td>
+              <td>{{room.num_patients}}</td>
+              <td>
+                <button class="Warning">Edit</button>
+                <button class="Danger DeleteButton" id="{{ room.id }}">
+                  Delete
+                </button>
+                <button class="Success">
+                  <a href="{% url 'entities:detail_room' pk=room.id %}">View</a>
+                </button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="Modal Hidden">
+    <div class="ModalCard">
+      <div class="Header">Delete Room</div>
+      <form class="Body" action="/{}">
+        <div class="Actions">
+          Are you sure that you want to delete the room?
+          <button class="Danger">Cancel</button>
+          <button class="Success" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
