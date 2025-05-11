@@ -17,6 +17,8 @@
 }
 .Card > .Body{
     display: grid;
+    grid-template-rows: auto;
+    gap: 0.5rem;
     padding-left: 0.5rem;
     overflow: auto;
 }

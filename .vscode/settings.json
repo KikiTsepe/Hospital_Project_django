@@ -6,5 +6,8 @@
   "editor.formatOnType": false,
   "python.linting.mypyArgs": [
     "--cache-dir=.mypy_cache/.vscode"
-]
+],
+"[django-html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
 }

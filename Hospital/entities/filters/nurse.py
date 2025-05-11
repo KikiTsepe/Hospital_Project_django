@@ -6,4 +6,6 @@ class NurseFilter(EmployeeFilter):
 
     class Meta:
         model = Nurse
-        fields = {**EmployeeFilter.Meta.fields, "room_in_carge": ["exact"]}
+        fields = {
+            **EmployeeFilter.Meta.fields, "room_in_charge__number": ["exact"]
+        }

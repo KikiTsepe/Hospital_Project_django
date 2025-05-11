@@ -9,6 +9,6 @@ class PatientFilter(HumanFilter):
         fields = {
             **HumanFilter.Meta.fields, "disease":
             ["exact", "contains", "icontains"],
-            "room": ["exact"],
+            "room__number": ["exact"],
             "doctor": ["exact"]
         }

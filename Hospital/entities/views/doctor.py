@@ -1,6 +1,7 @@
 """
-This module contains the views of the entities app.
+This module contains the doctor views of the entities app.
 """
+from typing import Any
 from django.db.models import Count, Avg
 from django_filters.views import FilterView
 from django.views.generic import DetailView
@@ -15,10 +16,10 @@ class DoctorListView(FilterView):
     context_object_name = 'context'
     template_name = 'content/doctor/list/index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        doctors = context.pop("context")
-        context["context"] = {
+    def get_context_data(self, **kwargs) -> dict[str, Any]:
+        ctx: dict[str, Any] = super().get_context_data(**kwargs)
+        doctors = ctx.pop("context")
+        ctx["context"] = {
             "filter":
             self.filterset_class,
             "doctors":
@@ -34,13 +35,14 @@ class DoctorListView(FilterView):
                 avg_experience=Avg('experience'))['avg_experience'] or 0)
         }
 
-        return context
+        return ctx
 
 
 class DoctorDetailView(DetailView):
     model = Doctor
     context_object_name = 'context'
-    template_name = 'content/doctor/detail/index.html'
+
+    template_name = "content/doctor/detail/index.html"
 
     def get_context_data(self, **kwargs):
         context = super(DoctorDetailView, self).get_context_data(**kwargs)
